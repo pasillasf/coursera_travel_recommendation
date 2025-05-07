@@ -1,19 +1,3 @@
-function getCurrentTime(country, callback) {
-    const xhr = new XMLHttpRequest();
-    const apiUrl = `https://api.api-ninjas.com/v1/worldtime?city=${country}`;
-    xhr.open('GET', apiUrl, true);
-    xhr.setRequestHeader('X-Api-Key', '0S');
-    xhr.onload = function() {
-        if (this.status === 200) {
-            const data = JSON.parse(this.responseText);
-            callback(data.datetime);
-        } else {
-            callback("Time not available");
-        }
-    };
-    xhr.send();
-}
-
 function search() {
     const input = document.getElementById('searchInput').value.toLowerCase();
     const xhr = new XMLHttpRequest();
