@@ -1,21 +1,12 @@
-function getCurrentTime(country, callback) {
-    const xhr = new XMLHttpRequest();
-    const apiUrl = `https://api.api-ninjas.com/v1/worldtime?city=${country}`;
-    xhr.open('GET', apiUrl, true);
-    xhr.setRequestHeader('X-Api-Key', 'dDVMMy11C5O68IKqjX7bXA==OWnx1pgxF5kOnu0S');
-    xhr.onload = function() {
-        if (this.status === 200) {
-            const data = JSON.parse(this.responseText);
-            callback(data.datetime);
-        } else {
-            callback("Time not available");
-        }
-    };
-    xhr.send();
+function getCurrentTime(timeLocale, timeOptions) {
+    let time = new Date().toLocaleTimeString(timeLocale, timeOptions);
+    alert('time', time);
+    return time;
 }
 
 function search() {
     const input = document.getElementById('searchInput').value.toLowerCase();
+    alert('search', input);
     const xhr = new XMLHttpRequest();
     xhr.open('GET', 'travel_recommendation_api.json', true);
     xhr.onload = function() {
@@ -25,20 +16,21 @@ function search() {
             
             // Search in countries and cities
             data.countries.forEach(function(country) {
+                alert('countries');
                 if (country.name.toLowerCase().includes(input)) {
-                    getCurrentTime(country.cities.name, function(currentTime) {
+                    alert('before get');
+                    let currentTime = getCurrentTime(country.cities.locale, country.cities.options) 
                         output += `
                             <div class="recommendation">
                                 <h3>${country.cities.name}</h3>
                                 <p>Current local time: ${currentTime}</p>
                             </div>
                         `;
-                        document.getElementById('searchResults').innerHTML = output;
-                    });
+                        document.getElementById('searchResults').innerHTML = output;                    
                 }
                 country.cities.forEach(function(city) {
                     if (city.name.toLowerCase().includes(input) || city.description.toLowerCase().includes(input)) {
-                        getCurrentTime(country.name, function(currentTime) {
+                        let currentTime = getCurrentTime(country.cities.locale, country.cities.options)
                             output += `
                                 <div class="recommendation">
                                     <h3>${city.name}</h3>
@@ -47,8 +39,7 @@ function search() {
                                     <p>Current local time: ${currentTime}</p>
                                 </div>
                             `;
-                            document.getElementById('searchResults').innerHTML = output;
-                        });
+                            document.getElementById('searchResults').innerHTML = output;                        
                     }
                 });
             });
