@@ -1,22 +1,23 @@
 function getCurrentTime(timeLocale, timeOptions) {
     let time = new Date().toLocaleTimeString(timeLocale, timeOptions);
-    alert('time', time);
+    //alert('time' + time);
     return time;
 }
 
 function search() {
     const input = document.getElementById('searchInput').value.toLowerCase();
-    alert('search', input);
+    //alert('search ' + input);
     const xhr = new XMLHttpRequest();
     xhr.open('GET', 'travel_recommendation_api.json', true);
     xhr.onload = function() {
         if (this.status === 200) {
+            //alert('200');
             const data = JSON.parse(this.responseText);
             let output = '<h2>Search Results:</h2>';
             
             // Search in countries and cities
             data.countries.forEach(function(country) {
-                alert('countries');
+                //alert('countries');
                 if (country.name.toLowerCase().includes(input)) {
                     alert('before get');
                     let currentTime = getCurrentTime(country.cities.locale, country.cities.options) 
@@ -95,6 +96,8 @@ function search() {
             }
 
             document.getElementById('searchResults').innerHTML = output;
+        } else{
+            alert('not 200');
         }
     };
     xhr.send();
