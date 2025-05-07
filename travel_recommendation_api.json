@@ -38,7 +38,7 @@
         "cities": [
           {
             "name": "Tokyo, Japan",
-            "imageUrl": "tokyo.jpg",
+            "imageUrl": "tokio.jpg",
             "description": "A bustling metropolis blending tradition and modernity, famous for its cherry blossoms and rich culture.",
             "locale":"ja-JP",
             "options": {
@@ -85,7 +85,7 @@
             "name": "São Paulo, Brazil",
             "imageUrl": "sao-paulo.jpg",
             "description": "The financial hub with diverse culture, arts, and a vibrant nightlife.",
-            "options" { 
+            "options": { 
                 "timeZone": "America/Sao_Paulo", 
                 "hour12": true, 
                 "hour": "numeric", 
@@ -103,21 +103,21 @@
         "name": "Angkor Wat, Cambodia",
         "imageUrl": "angkor-wat.jpg",
         "description": "A UNESCO World Heritage site and the largest religious monument in the world.",
-        "options" = { 
+        "locale":"km-KH",
+        "options": { 
             "timeZone": "Asia/Phnom_Penh", 
             "hour12": true, 
             "hour": "numeric", 
             "minute": "numeric", 
             "second": "numeric" 
-        },
-        "locale":"km-KH"
+        }        
       },
       {
         "id": 2,
         "name": "Taj Mahal, India",
         "imageUrl": "taj-mahal.jpg",
         "description": "An iconic symbol of love and a masterpiece of Mughal architecture.",
-        "options" = { 
+        "options": { 
             "timeZone": "Asia/Kolkata", 
             "hour12": true, 
             "hour": "numeric", 
@@ -133,7 +133,7 @@
         "name": "Bora Bora, French Polynesia",
         "imageUrl": "bora-bora.jpg",
         "description": "An island known for its stunning turquoise waters and luxurious overwater bungalows.",
-        "options" = { 
+        "options": { 
             "timeZone": "Pacific/Tahiti", 
             "hour12": true, 
             "hour": "numeric", 
@@ -147,7 +147,7 @@
         "name": "Copacabana Beach, Brazil",
         "imageUrl": "copacabana.jpg",
         "description": "A famous beach in Rio de Janeiro, Brazil, with a vibrant atmosphere and scenic views.",
-        "options" { 
+        "options": { 
             "timeZone": "America/Sao_Paulo", 
             "hour12": true, 
             "hour": "numeric", 
