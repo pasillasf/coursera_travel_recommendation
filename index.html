@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacation Recommendations</title>
+    <link rel="stylesheet" href="travel_recommendation.css">
+    <script src="travel_recommendation.js" defer></script>
+</head>
+<body>
+    <div class="navbar">
+        <img src="logo8.png" alt="Logo" class="logo">
+        <div class="nav-links">
+            <a href="travel_recommendation.html">Home</a>
+            <a href="travel_recommendation_aboutus.html">About Us</a>
+            <a href="travel_recommendation_contact.html">Contact Us</a>
+        </div>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search..">
+            <button type="button" onclick="search()">Search</button>
+            <button type="button" onclick="clearSearch()">Clear</button>
+        </div>
+    </div>
+    
+    <div class="content">
+        <h1>Welcome to Vacation Recommendations</h1>
+        <p>Discover your next dream vacation destination!</p>
+        <p>It encourages exploration to unfamiliar territories, embracing diverse cultures.</p>
+        
+        <div id="searchResults"></div>
+    </div>
+</body>
+</html>
